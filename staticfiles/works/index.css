@@ -7,3 +7,11 @@
     height: 50px;
     overflow: hidden;
 }
+
+body {
+    background: -webkit-linear-gradient(#9c9c9c, #e6e6e6); 
+    background: -o-linear-gradient(#9c9c9c, #e6e6e6); 
+    background: -moz-linear-gradient(#9c9c9c, #e6e6e6); 
+    background: linear-gradient(#9c9c9c, #e6e6e6); 
+    background-color:#9c9c9c; 
+}
