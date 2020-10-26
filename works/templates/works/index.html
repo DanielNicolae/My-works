@@ -8,9 +8,9 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+        
         <link rel="shortcut icon" href="{%  static 'works/favicon.ico' %}">
-        <script type="application/javascript" src="{%  static 'works/index.js' %}"></script>
+        
         <link rel="stylesheet" href="{% static 'works/index.css' %}">
     </head>
     <body>
@@ -19,15 +19,24 @@
               <a href="/" class="brand-logo center">My Works</a>
               
             </div>
-            <div class="nav-wrapper blue accent-3">
-                <div class='row'>
-                    <ul class="left">
-                        <li id="games"><a class="btn btn-link">My Android games</a></li>
-                        <li id="models"><a class="btn btn-link">My 3D models</a></li>
-                    </ul>
-                </div>
-            </div>
         </nav>
+        <nav class="container nav-wrapper blue accent-3">
+            <a href="#" class="sidenav-trigger" data-target="mobile-links">
+                <i class="material-icons">menu</i>
+            </a>
+            <div class="navbar-links left hide-on-med-and-down">
+                <ul >
+                    <li id="games"><a class="btn btn-link">My Android games</a></li>
+                    <li id="models"><a class="btn btn-link">My 3D models</a></li>
+                </ul>   
+            </div>
+            
+        </nav>
+
+        <ul class="sidenav" id="mobile-links">
+            <li id="games2"><a class="btn btn-link">My Android games</a></li>
+            <li id="models2"><a class="btn btn-link">My 3D models</a></li>
+        </ul>
         
         <div class="container">  
             <br>
@@ -36,7 +45,7 @@
             <br>    
             <div id="allmodels" class="row">
                 {% for model in allModels %}
-                <div class="col m4 l3">
+                <div class="col s12 m4 l3">
                     <div class="card">
                         <a target="_blank" href='https://grabcad.com{{model.0}}'>
                             <div class="card-image">
@@ -51,7 +60,7 @@
                 {% endfor %}
             </div>
 
-            <div id='allgames' class='row'>
+            <div id='allgames' class='row items'>
                 <div class="col m4 l3">
                     <div class="card">
                         <a target="_blank" href='https://play.google.com/store/apps/details?id=com.Deadly_Poet.High_in_the_sky'>
@@ -64,7 +73,7 @@
                         </a>
                     </div>
                 </div>
-                <div class="col m4 l3">
+                <div class="col  m4 l3">
                     <div class="card">
                         <a target="_blank" href='https://play.google.com/store/apps/details?id=com.DeadlyPoet.Orb_rush'>
                             <div class="card-image">
@@ -76,7 +85,7 @@
                         </a>
                     </div>
                 </div>
-                <div class="col m4 l3">
+                <div class="col  m4 l3">
                     <div class="card">
                         <a target="_blank" href='https://play.google.com/store/apps/details?id=com.DontuDanielNicolae.Spherecontrol'>
                             <div class="card-image">
@@ -88,7 +97,7 @@
                         </a>
                     </div>
                 </div>
-                <div class="col m4 l3">
+                <div class="col  m4 l3">
                     <div class="card">
                         <a target="_blank" href='https://play.google.com/store/apps/details?id=com.Deadly_Poet.Sphere_evolution'>
                             <div class="card-image">
@@ -100,7 +109,7 @@
                         </a>
                     </div>
                 </div>
-                <div class="col m4 l3">
+                <div class="col  m4 l3">
                     <div class="card">
                         <a target="_blank" href='https://play.google.com/store/apps/details?id=com.DontuDanielNicolae.Bunkerdefence'>
                             <div class="card-image">
@@ -112,7 +121,7 @@
                         </a>
                     </div>
                 </div>
-                <div class="col m4 l3">
+                <div class="col  m4 l3">
                     <div class="card">
                         <a target="_blank" href='https://play.google.com/store/apps/details?id=com.Deadly_Poet.Hungry_millipede'>
                             <div class="card-image">
@@ -126,6 +135,25 @@
                 </div>
             </div>
         </div>
-    
+        <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+        <script>
+            $(document).ready(()=>{
+                $('.sidenav').sidenav();
+            })
+            document.querySelector('#games2').addEventListener('click', ()=>loadGames());
+            document.querySelector('#models2').addEventListener('click', ()=>loadModels());
+
+            function loadGames() {
+                document.querySelector('#allgames').style.display = 'block';
+                document.querySelector('#allmodels').style.display = 'none';
+            }
+
+            function loadModels() {
+                document.querySelector('#allgames').style.display = 'none';
+                document.querySelector('#allmodels').style.display = 'block';
+            }
+        </script>
+        <script type="application/javascript" src="{%  static 'works/index.js' %}"></script>
     </body>
 </html>

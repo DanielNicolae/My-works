@@ -4,6 +4,7 @@ document.addEventListener('DOMContentLoaded', function(){
     loadGames();
 });
 
+
 function loadGames() {
     document.querySelector('#allgames').style.display = 'block';
     document.querySelector('#allmodels').style.display = 'none';
