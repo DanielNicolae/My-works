@@ -7,4 +7,4 @@ In this project I used web scrapping with Python (BeautifullSoup) in order to ge
 
 Note: I used Materialize as a CSS library.
 
-https://free-steam-epic-games.herokuapp.com/
+https://deadly-poet.herokuapp.com/
